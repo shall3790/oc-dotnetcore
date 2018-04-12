@@ -16,7 +16,7 @@ namespace oc_dotnetcore
         {
             BuildWebHost(args).Run();
         }
-        // test 2
+        // test 3
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()

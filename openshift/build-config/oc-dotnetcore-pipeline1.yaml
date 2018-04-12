@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: oc-dotnetcore-pipeline
+spec:
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfile: |-
+        pipeline {
+          agent any
+          stages {
+            stage("Clone Source") {
+              steps {
+                sh 'echo clone...'
+              }
+            }
+            stage("Build WAR") {
+              steps {
+                sh 'echo build '
+              }
+            }
+            stage("Build Image") {
+              steps {
+                sh 'echo build image'
+              }
+            }
+          }
+        }
+    type: JenkinsPipeline
+  triggers: 
+    - type: "GitHub"
+      github:
+        secret: "secret101"
+  source:
+    git: 
+      uri: "https://github.com/shall3790/oc-dotnetcore.git"
+      ref: "master"
