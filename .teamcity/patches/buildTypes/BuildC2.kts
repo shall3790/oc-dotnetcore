@@ -25,6 +25,12 @@ create(DslContext.projectId, BuildType({
             name = "step1"
             scriptContent = """echo "hello world build step update2""""
         }
+        script {
+            name = "step 2"
+            scriptContent = """echo "hello docker""""
+            dockerImage = "node:latest"
+            dockerPull = true
+        }
     }
 
     triggers {
