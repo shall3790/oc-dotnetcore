@@ -46,6 +46,10 @@ object Build : BuildType({
         dotnetPublish {
             projects = "oc-dotnetcore.csproj"
         }
+        script {
+            name = "foo"
+            scriptContent = """echo "Hello Foo""""
+        }
     }
 
     triggers {
