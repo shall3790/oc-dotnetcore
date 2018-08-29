@@ -3,6 +3,7 @@ package patches.buildTypes
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildType
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2018_1.ui.*
 
 /*
@@ -23,6 +24,12 @@ create(DslContext.projectId, BuildType({
         script {
             name = "step1"
             scriptContent = """echo "hello world build step update""""
+        }
+    }
+
+    triggers {
+        vcs {
+            branchFilter = ""
         }
     }
 }))
