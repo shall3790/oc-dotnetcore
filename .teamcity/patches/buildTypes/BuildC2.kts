@@ -13,5 +13,9 @@ create(DslContext.projectId, BuildType({
     id("BuildC2")
     name = "BuildC2"
     description = "2nd build config"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 }))
 
