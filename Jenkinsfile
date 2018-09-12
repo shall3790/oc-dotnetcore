@@ -51,6 +51,7 @@ pipeline {
                     sh "echo build step..."
                     def buildDir = sh(returnStdout: true, script: 'pwd').trim();
                     sh "echo building in local dir:  ${buildDir}"; 
+                    sh "dotnet build"
                     // // removed options --workdir /opt/app-root/src --name ${env.APP_NAME}-build
                     // // we'll use root for the build
                     // sh "docker run -t --rm -u root -v ${buildDir}:/opt/app-root/src  ${buildImg} bash -c \"rm -fr bin && dotnet restore && dotnet publish -c Release -o out\""
